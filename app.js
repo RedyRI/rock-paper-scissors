@@ -42,12 +42,19 @@ function playGame(playerSelection, computerSelection) {
 // exceute the game 5 times and save the score to find a winner
 
 function game() {
+    let gameFinalResume = document.getElementById('gameResume');
+    let gameResume = '';
+    let playerSelections = [];
+    let computerSelections = [];
     let i = 1;
     let playerScore = 0;
     let computerScore = 0;
+    let winner;
     while (i <= 5) {
-        playerSelection = prompt("choose your selection: ").toLowerCase();
+        playerSelection = prompt("choose between ROCK, PAPER or SCISSORS: ").toLowerCase();
+        playerSelections.push(playerSelection);
         computerSelection = computerPlay();
+        computerSelections.push(computerSelection);
         let result = playGame(playerSelection, computerSelection);
         console.log(`the player selection was: ${playerSelection}
 The computer selection was: ${computerSelection}`);
@@ -60,12 +67,17 @@ The computer selection was: ${computerSelection}`);
         i += 1
     }
     if (playerScore > computerScore) {
-        console.log(`You win, you have ${playerScore} points and computer has ${computerScore} pints.`);
+        winner = `You win, you have ${playerScore} points and computer has ${computerScore} points.`;
     } else if(playerScore < computerScore) {
-        console.log(`You lose, you have ${playerScore} points and computer has ${computerScore} pints.`);
+        winner = `You lose, you have ${playerScore} points and computer has ${computerScore} points.`;
     } else {
-        console.log("Draw");
+        winner = `Draw, you have ${playerScore} points and computer has ${computerScore} points.`;
     }
+    console.log(winner);
+    gameResume = `${winner}<br>your selections are >> ${playerSelections.join(" - ")}<br>the computer selections are >> ${computerSelections.join(" - ")}`
+
+    gameFinalResume.innerHTML = gameResume;
+
 }
 
 game()
