@@ -4,18 +4,206 @@
     padding: 0;
     font-family: arial;
     text-align: center;
+    font-family: 'Stalinist One', cursive;
+
 }
 
 body {
-    background-color: lightcyan;
+    background-image: url('./images/background.png');
+    position: relative;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(38, 160, 241);
+    z-index: -1;
+    opacity: 0.15;
+}
+
+.welcome {
+    color: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+}
+
+.welcome button {
+    background-color: black;
+    color: white;
+    padding: 15px 0;
+    width: 50%;
+    margin: 50px auto;
+    z-index: 2;
+    cursor: pointer;
+    outline: none;
 }
 
 h1 {
+    color: #daae51;
     text-align: center;
     font-weight: bold;
     padding: 15px 0;
 }
 
-p {
-    padding: 20px;
+.btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    margin-top: 0px;
+    align-items: flex-end;
+    margin-top: 25px;
+    transform-origin: bottom;
+}
+
+.btn {
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    background-color: black;
+    color: #daae51;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: 'Pangolin', cursive;
+}
+
+.btn-animation {
+
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-name: bounce-7;
+    animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+
+.restart {
+    background-color: black;
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    outline: none;
+    margin-top: 50px;
+    cursor: pointer;
+}
+.score-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 50px 50px 50px;
+}
+
+.player-score, .computer-score {
+    width: 40%;
+    padding: 25px 0px;
+    background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+    margin: 0 auto;
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Pangolin', cursive;
+}
+.winner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    position: absolute;
+    left: -150%;
+    top: -150%;
+    animation: slide .7s ease forwards;
+    z-index: 9999;
+}
+
+.image-container {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    display: flex;
+}
+
+#vs {
+    position: absolute;
+    color: black;
+    font-size: 4rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: #daae51;
+}
+
+.player-image, .computer-image {
+    width: 50%;
+    height: 100%;
+}
+
+.player-animation {
+    position: absolute;
+    left: 0;
+    top: 0;
+    left: -55%;
+    animation: playerSlide .4s ease forwards;
+}
+
+.computer-animation {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    left: 105%;
+    animation: computerSlide .4s ease forwards;
+}
+
+#footer {
+    color: #daae51;
+}
+
+@keyframes slide {
+    100% {
+        top: 0;
+        left: 0;
+    }
+}
+
+@keyframes playerSlide {
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes computerSlide {
+    100% {
+        left: 50%;
+    }
+}
+
+@keyframes bounce-7 {
+    0%   { transform: scale(1,1)      translateY(0); }
+    10%  { transform: scale(1.1,.9)   translateY(0); }
+    30%  { transform: scale(.9,1.1)   translateY(-100px); }
+    50%  { transform: scale(1.05,.95) translateY(0); }
+    57%  { transform: scale(1,1)      translateY(-7px); }
+    64%  { transform: scale(1,1)      translateY(0); }
+    100% { transform: scale(1,1)      translateY(0); }
 }

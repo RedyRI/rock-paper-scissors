@@ -6,11 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors GaMe</title>
     <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+
 </head>
 <body>
+    <div class="welcome">
+        WELCOME TO ROCK PAPER SCISSORS GAME
+        <button>START GAME</button>
+    </div>
     <h1>ROCK PAPER SCISSOR GAME</h1>
-    <p>To se the results of the game in the console in the Chrome Developer Tools press F12</p>
-    <p id="gameResume"></p>
+    <div class="btn-container">
+        <button class="btn">rock</button>
+        <button class="btn">paper</button>
+        <button class="btn">scissors</button>
+    </div>
+    <div class="score-container">
+        <div class="player-score"></div>
+        <div class="computer-score"></div>
+    </div>
+    <div class="image-container">
+        <p id="vs">VS</p>
+        <div class="player-image">
+            <img src="" alt="">
+        </div>
+        <div class="computer-image">
+            <img src="" alt="">
+        </div>
+    </div>
+    <footer id="footer">***The fisrt one with 5 points wins!!!</footer>
     <script src="app.js"></script>
 </body>
 </html>
